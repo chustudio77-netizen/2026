@@ -229,7 +229,7 @@ header {
   // 手機版 ✨
   @media (max-width: $mobile) {
     display: grid;
-    grid-template-columns: 1fr 1fr; // ✅ Grid容器才用这个
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     gap: 0;
     padding: 0;
@@ -251,7 +251,7 @@ header {
     }
 
     .nav-links {
-      grid-column: 1 / -1; // ✅ 占满整行（两列）
+      grid-column: 1 / -1;
       grid-row: 2;
       display: flex;
       gap: 0;
@@ -259,10 +259,18 @@ header {
 
       a {
         flex: 1; // 两个链接各占50%
-        padding: 18px 20px;
-        background-color: $highlight-green;
+        padding: 16px 20px;
+
         text-align: center;
         border: none;
+
+        &:first-child {
+          background-color: #E8FEC5;
+        }
+
+        &:last-child {
+          background-color: #F5FEE7;
+        }
       }
 
       &:not(.home) {
@@ -604,12 +612,16 @@ header {
   color: #fff;
   text-align: center;
   display: flex;
-  gap: 12px;
+  gap: 16px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
   h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
     font-size: 48px;
     font-weight: 700;
     letter-spacing: 8%;
@@ -623,13 +635,15 @@ header {
   h3 {
     font-weight: 700;
     font-size: 32px;
+    letter-spacing: 7%;
   }
 
   h4 {
     font-size: 20px;
     opacity: 0.7;
-    padding: 20px 0;
+    padding: 20px;
     line-height: 1.5;
+    word-break: break-all;
   }
 
   &::before {
@@ -644,24 +658,29 @@ header {
     z-index: 2;
 
     @media (max-width: $tablet) {
-        top: -25%;
-    left: -5%;
+      top: -25%;
+      left: -5%;
     }
 
   }
 
   @media (max-width: $tablet) {
+    gap: 24px;
+
     h2 {
-      font-size: clamp(28px, 6vw, 48px);
+      font-size: clamp(32px, 6vw, 48px);
+      flex-direction: column;
+      gap: 4px;
     }
 
     h3 {
-      font-size: clamp(24px, 4vw, 32px);
+      font-size: clamp(20px, 4vw, 32px);
     }
 
     h4 {
       font-size: clamp(16px, 2vw, 20px);
-      padding: 20px;
+      line-break: normal;
+      padding: 0 48px 12px;
     }
   }
 
@@ -1006,8 +1025,7 @@ header {
 
   @media (max-width: 992px) {
     flex-direction: column;
-    padding: 0 12px;
-
+    padding-bottom: 36px;
   }
 
 
@@ -1024,6 +1042,10 @@ header {
 
   @media (max-width: $mobile) {
     flex: 1;
+
+    .detail_size {
+      padding: 0;
+    }
   }
 
   h1 {
@@ -1074,6 +1096,7 @@ header {
   p {
     padding-bottom: 12px;
   }
+
 }
 
 .color_options {
@@ -1184,17 +1207,8 @@ header {
   gap: 24px;
   padding-bottom: 48px;
 
-  @media (max-width: $mobile) {
-    flex-direction: column;
-
-    .light {
-      font-size: 0;
-      border: none;
-
-      &svg {
-        color: $neutral-color
-      }
-    }
+  .bi-heart-fill {
+    display: none;
   }
 
   button {
@@ -1205,13 +1219,17 @@ header {
     padding: 12px 24px;
     width: 100%;
     border-radius: 4px;
-    letter-spacing: 5%;
+    letter-spacing: 0.05em;   
+    font-size: 16px;
     font-weight: 500;
     @include transition;
     cursor: pointer;
     background-color: #fff;
     border: 1px solid #212529;
 
+    i{
+      padding-top:0.2rem ;
+    }
     &.light:hover {
       background-color: $neutral-color;
       color: #fff;
@@ -1225,6 +1243,36 @@ header {
       &:hover {
         background-color: $primary-color;
         color: #fff;
+      }
+    }
+
+  }
+
+  @media (max-width: $mobile) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 24px 0;
+
+
+    button.dark {
+      order: -1;
+    }
+
+    button.light {
+      font-size: 0;
+      border: none;
+      padding: 12px;
+
+      i {
+        font-size: 16px;
+        color: $neutral-color;
+      }
+
+      &:hover {
+        background-color: #fff;             
+        .bi-heart-fill { display: block; color: $primary-color;}
+        .bi-heart      { display: none; }
       }
     }
   }
@@ -1266,7 +1314,7 @@ header {
   }
 
   @media (max-width: $tablet) {
-    padding: 12px;
+    padding: 0px;
   }
 }
 
@@ -1290,9 +1338,7 @@ footer {
   justify-content: center;
   gap: 24px;
 
-  @media (max-width: $mobile) {
-    flex-direction: column;
-  }
+
 
   a {
     color: #fff;
