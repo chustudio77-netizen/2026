@@ -228,14 +228,14 @@ header {
 .banner {
   max-width: 1920px;
   height: 800px;
-  background: no-repeat center/cover url("../asset/images/2025-week3-4/banner.png");
+  background: no-repeat center/cover url("./asset/images/2025-week3-4/banner.png");
   display: flex;
   align-items: center;
   position: relative;
 }
 @media (max-width: 992px) {
   .banner {
-    background: no-repeat center/cover url("../asset/images/2025-week3-4/banner-sm.png");
+    background: no-repeat center/cover url("./asset/images/2025-week3-4/banner-sm.png");
     height: 480px;
   }
 }
@@ -510,7 +510,7 @@ header {
 .co-brand-info::before {
   position: absolute;
   content: "";
-  background: no-repeat center/cover url("../asset/images/2025-week3-4/star.svg");
+  background: no-repeat center/cover url("./asset/images/2025-week3-4/star.svg");
   width: 60px;
   height: 60px;
   top: -16%;
@@ -544,7 +544,7 @@ header {
 .co-brand-info::after {
   position: absolute;
   content: "";
-  background: no-repeat center/cover url("../asset/images/2025-week3-4/sparkle.svg");
+  background: no-repeat center/cover url("./asset/images/2025-week3-4/sparkle.svg");
   width: 142px;
   height: 128px;
   bottom: -4%;
