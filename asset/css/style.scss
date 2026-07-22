@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 /* ========== 變數定義 ========== */
 $primary-color: #57A203;
 $secondary-color: #E8FEC5;
@@ -135,7 +138,7 @@ section {
 
 body {
   line-height: 1;
-  font-family: "Noto Sans TC";
+  font-family: "Noto Sans", sans-serif;
   letter-spacing: 3%;
 
 }
@@ -143,6 +146,7 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+  display: block;
 }
 
 ol,
@@ -168,17 +172,23 @@ table {
   border-spacing: 0;
 }
 
+img {
+  max-width: 100%;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
 /* ========== Container ========== */
 .container {
   max-width: 1296px;
   margin: 0 auto;
 
   @media (max-width: $tablet) {
-    padding: 0 12px;
+    padding: 0 24px;
   }
 
   @media (max-width: $mobile) {
-    // 手機版樣式
+    padding: 0 12px;
   }
 }
 
@@ -196,23 +206,10 @@ header {
   max-width: 1296px;
   gap: 60px;
 
+
   .logo {
-    font-size: 20px;
-    font-weight: 700 !important;
-    letter-spacing: 0% !important;
-    color: $neutral-color;
-    // &::after {
-    //   content: "";
-    //   display: inline-block;
-    //   position: absolute;
-    //   width: 8px;
-    //   height: 8px;
-    //   border-radius: 50%;
-    //   background-color: $highlight-green;
-    //   right: 15%;
-    //   top: 39%;
-    //   z-index: -1;
-    // }
+    display: flex;
+    align-items: center;
   }
 
   .nav-links {
@@ -224,27 +221,35 @@ header {
 
   .account-btn {
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
   }
 
-  // 手機版 ✨
+  .account-icon {
+    display: block;
+  }
+
+ 
   @media (max-width: $mobile) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     gap: 0;
     padding: 0;
-    align-items: flex-start;
+    align-items: center;
 
     .logo {
-      grid-column: 1 / 2; // 左边第一列
-      grid-row: 1; // 第一行
+      grid-column: 1 / 2; 
+      grid-row: 1; 
       padding: 24px 12px;
 
     }
 
     .account-btn {
-      grid-column: 2 / 3; // 右边第二列
-      grid-row: 1; // 第一行
+      grid-column: 2 / 3; 
+      grid-row: 1; 
       padding: 24px 20px;
       text-align: right;
 
@@ -258,7 +263,7 @@ header {
       flex: none;
 
       a {
-        flex: 1; // 两个链接各占50%
+        flex: 1; 
         padding: 16px 20px;
 
         text-align: center;
@@ -350,7 +355,7 @@ header {
   }
 
   @media (max-width: $mobile) {
-    // 手機版樣式
+    
   }
 }
 
@@ -371,7 +376,6 @@ header {
 
 .index-title {
   font-size: clamp(32px, 6vw, 48px);
-  ;
   font-weight: 700;
   text-align: center;
   width: 100%;
@@ -379,7 +383,6 @@ header {
 
 .index-sub-title {
   font-size: clamp(24px, 4vw, 32px);
-  ;
   font-weight: 700;
   padding: 30px 0;
 
@@ -408,13 +411,13 @@ header {
   gap: 48px 24px;
   padding-top: 12px;
 
-  // @media (max-width: $tablet) {
-  //   grid-template-columns: 1fr;
-  // }
+  
+  
+  
 
-  // @media (max-width: $mobile) {
-  //   grid-template-columns: 1fr;
-  // }
+  
+  
+  
 }
 
 .index-new-card {
@@ -427,57 +430,10 @@ header {
     opacity: 0.7;
   }
 
-  img {
-    width: 100%;
-    background-size: cover;
-
-  }
 
 
 }
 
-/* ========== Index Hot ========== */
-// .index-hot {
-//   display: grid;
-//   grid-template-columns: repeat(4, 1fr);
-//   gap: 24px;
-
-//   @media (max-width: $tablet) {
-//     grid-template-columns: repeat(2, 1fr);
-//   }
-
-//   @media (max-width: $mobile) {
-//     grid-template-columns: 1fr;
-
-//   }
-
-//   img {
-//     width: 100%;
-//     background-size: cover;
-//     vertical-align: center;
-//     aspect-ratio: 1 / 1;
-//   }
-
-//   a {
-//     position: relative;
-//     @include transition;
-
-//     &::before {
-//       content: "人氣 NO.1";
-//       position: absolute;
-//       color: $primary-color;
-//       background-color: $light-bg;
-//       padding: 12px;
-//       font-size: 14px;
-//       font-weight: 500;
-//     }
-
-//     &:hover {
-//       opacity: 0.7;
-//     }
-
-//   }
-// }
 .index-hot {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -521,23 +477,21 @@ header {
   }
 
   img {
-    width: 100%;
     height: 100%;
-    object-fit: cover; // ✅ 改用object-fit
     aspect-ratio: 1 / 1;
   }
 
   a::before {
     content: "人氣 NO.1";
     position: absolute;
-    top: 12px; // ✅ 加上定位
+    top: 12px; 
     left: 12px;
     color: $primary-color;
     background-color: $light-bg;
     padding: 8px 12px;
     font-size: 14px;
     font-weight: 500;
-    border-radius: 4px; // ✅ 圆角更好看
+    border-radius: 4px; 
     z-index: 10;
   }
 }
@@ -559,9 +513,6 @@ header {
   align-items: center;
   overflow: hidden;
 
-  img {
-    width: 100%;
-  }
 
   a {
     display: inline-block;
@@ -711,9 +662,7 @@ header {
   }
 
   img {
-    width: 100%;
-    background-size: cover;
-    vertical-align: center;
+
     aspect-ratio: 1 / 1;
   }
 
@@ -739,10 +688,7 @@ header {
     z-index: 1;
   }
 
-  img {
-    display: block;
-    width: 100%;
-  }
+
 
   &:hover h3 {
     color: $highlight-green;
@@ -793,11 +739,7 @@ header {
   }
 
 
-  img {
-    width: 100%;
-    object-fit: cover;
-    display: block;
-  }
+
 }
 
 .big-b {
@@ -957,9 +899,8 @@ header {
   overflow: hidden;
 
   img {
-    width: 100%;
+
     aspect-ratio: 1/1;
-    vertical-align: middle;
     @include transition;
   }
 }
@@ -1219,7 +1160,7 @@ header {
     padding: 12px 24px;
     width: 100%;
     border-radius: 4px;
-    letter-spacing: 0.05em;   
+    letter-spacing: 0.05em;
     font-size: 16px;
     font-weight: 500;
     @include transition;
@@ -1227,9 +1168,10 @@ header {
     background-color: #fff;
     border: 1px solid #212529;
 
-    i{
-      padding-top:0.2rem ;
+    i {
+      padding-top: 0.2rem;
     }
+
     &.light:hover {
       background-color: $neutral-color;
       color: #fff;
@@ -1270,9 +1212,16 @@ header {
       }
 
       &:hover {
-        background-color: #fff;             
-        .bi-heart-fill { display: block; color: $primary-color;}
-        .bi-heart      { display: none; }
+        background-color: #fff;
+
+        .bi-heart-fill {
+          display: block;
+          color: $primary-color;
+        }
+
+        .bi-heart {
+          display: none;
+        }
       }
     }
   }
@@ -1317,6 +1266,61 @@ header {
     padding: 0px;
   }
 }
+/* ========== .brand-store  ========== */
+
+.brand-store {
+	position: relative;
+  
+    width: 100%;
+   
+	.store-content {
+		position: absolute;
+    color: #fff;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 1;
+		text-align: center;
+	}
+	h1 {
+		font-size: 40px;
+		font-weight: 700;
+		line-height: 1.7;
+	}
+	h2 {
+		font-size: 28px;
+		font-weight: 700;
+	}
+
+}
+.story-img {
+	img {
+		width: 100%;
+		vertical-align: middle;
+	}
+}
+.story-article {
+	padding: 36px 0;
+	max-width: 876px;
+	margin: 0 auto;
+	h1 {
+		font-size: 24px;
+		line-height: 120%;
+		letter-spacing: 7%;
+		padding-bottom: 18px;
+		max-width: 876px;
+	}
+	h2 {
+		font-size: 20px;
+		color: $color_2;
+		line-height: 2;
+	}
+	p {
+		font-size: 16px;
+		line-height: 1.7;
+	}
+}
+
 
 /* ========== Footer ========== */
 footer {
@@ -1369,33 +1373,11 @@ footer {
   @media (max-width: $tablet) {
     flex-direction: column;
     align-items: flex-start;
-    padding: 16px 12px 16px;
+    padding: 30px 0px 30px 0;
+    gap: 12px;
+
   }
 
-
-
-  .logo {
-    font-weight: 700;
-    position: relative;
-    font-size: 20px;
-    padding: 20px 12px;
-
-    &::after {
-      content: "";
-      display: inline-block;
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: $secondary-color;
-      right: 8%;
-      z-index: -1;
-    }
-
-    @media (max-width: $tablet) {
-      padding-left: 0;
-    }
-  }
 }
 
 .footer-nav {
@@ -1405,7 +1387,7 @@ footer {
 
   @media (max-width: $tablet) {
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 
   }
 
@@ -1413,7 +1395,7 @@ footer {
     color: #374151;
     font-weight: 500;
     @include transition;
-    padding: 20px 0px;
+    padding: 20px 14px;
 
 
     &:hover {
